@@ -1,0 +1,76 @@
+int trigPin = 2;
+int echoPin = 3;
+
+int motor_A = 13;
+int motor_B = 12;
+int motor_C = 11;
+int motor_D = 10; 
+int motor_E = 9;
+int motor_F = 8; 
+
+int motor_G = 7; 
+int motor_H = 6; 
+int motor_I = 5; 
+int motor_J = 4;
+void setup() {
+  // put your setup code here, to run once:
+pinMode(trigPin,OUTPUT);
+
+pinMode(echoPin,INPUT);
+pinMode(motor_A,OUTPUT);
+pinMode(motor_B,OUTPUT);
+pinMode(motor_C,OUTPUT);
+pinMode(motor_D,OUTPUT);
+pinMode(motor_E,OUTPUT);
+pinMode(motor_F,OUTPUT);
+pinMode(motor_G,OUTPUT);
+pinMode(motor_H,OUTPUT);
+pinMode(motor_I,OUTPUT);
+pinMode(motor_J,OUTPUT);
+
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(trigPin, LOW);
+
+delayMicroseconds(2);
+
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin,LOW);
+
+long duration, distance;
+
+duration = pulseIn(echoPin, HIGH);
+
+distance = duration / 58.2;
+
+if (distance < 30) {
+ analogWrite(motor_A,255);
+ analogWrite(motor_B,0);
+ analogWrite(motor_C,255);
+ analogWrite(motor_D,0);
+  analogWrite(motor_E,255);
+ analogWrite(motor_F,0);
+ 
+ analogWrite(motor_G,0);
+ analogWrite(motor_H,255);
+  analogWrite(motor_I,0);
+ analogWrite(motor_J,255);
+ delay(3000);
+ analogWrite(motor_A,0);
+ analogWrite(motor_B,0);
+  analogWrite(motor_C,0);
+ analogWrite(motor_D,0);
+  analogWrite(motor_E,0);
+ analogWrite(motor_F,0);
+  analogWrite(motor_G,0);
+ analogWrite(motor_H,0);
+  analogWrite(motor_I,0);
+ analogWrite(motor_J,0);
+ delay(1000);
+ }
+ delay(1000);
+}
